@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% load static %} }
+
+{% block content %}
+<h1>Health Facts</h1>
+
+<br><br><br>
+<div class="container">
+    <div class="row">
+        {% for health_fact in health_facts %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                     <img src="{{ health_fact.image_link }}" alt="{{ health_fact.title }}">
+                        <p>{{ health_fact.description }}</p>
+                        
+                    </div>
+                </div>
+            </div>
+         {% endfor %}
+
+    </div>
+</div>
+
+
+{% endblock %}

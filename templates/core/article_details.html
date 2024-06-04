@@ -1,0 +1,13 @@
+<!-- templates/core/article_detail.html -->
+
+{% extends "base.html" %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>{{ article.title }}</h1>
+    <p>by {{ article.author.username }} on {{ article.created_at }}</p>
+    <p>{{ article.content }}</p>
+</div>
+{% endblock %}

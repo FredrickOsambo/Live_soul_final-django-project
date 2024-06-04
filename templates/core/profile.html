@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+{% include "core/navbar.html" %}
+<html>
+
+    <div class="container">
+                <head>
+                    <title>Your Profile</title>
+                </head>
+                <body>
+                    <h2>Your Profile</h2>
+                    <p>Username: {{ user.username }}</p>
+                    <p>Email: {{ user.email }}</p>
+                    <p>Height: {{ user.userprofile.height }} cm</p>
+                    <p>Weight: {{ user.userprofile.weight }} kg</p>
+                    <p>Age: {{ user.userprofile.age }}</p>
+                    <p>Gender: {{ user.userprofile.get_gender_display }}</p>
+                    <p>BMI: {{ user.userprofile.bmi }}</p>
+                    <a href="{% url 'edit_profile' %}">Edit Profile</a>
+                
+                    <!-- templates/core/profile.html -->
+                
+                </body>
+        </div>
+</html>

@@ -1,0 +1,33 @@
+<!-- templates/core/article_list.html -->
+
+{% extends "main.html" %}
+
+{% block title %}Articles{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Articles</h1>
+    <a class="btn btn-primary mb-3" href="{% url 'create_article' %}">Create New Article</a>
+    
+        {% for article in articles %}
+            
+          <div class="p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end --bs-info-bg-subtle .text-light">
+              <li class="list-group-item">
+                  <h2 id="article_title">{{ article.title }}</h2>
+                  <p>by {{ article.author.username }} on {{ article.created_at }}</p>
+                  <p>{{ article.content|truncatewords:30 }}</p>
+              </li>
+
+            </button>
+        {% endfor %}
+    
+
+    <style>
+        #article_title {
+              color: #ff6347;
+              text-decoration: none;
+              transition: color 0.3s;
+          }
+    </style>
+</div>
+{% endblock %}

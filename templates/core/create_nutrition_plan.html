@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Nutrition Plan</title>
+</head>
+<body>
+    <h2>Create a New Nutrition Plan</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Plan</button>
+    </form>
+</body>
+</html>

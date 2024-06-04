@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html>
+<head>
+    {% include 'core/navbar.html' %}
+    <title>HealthConnect - Your Health Companion</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        header { background-color: #4CAF50; color: white; padding: 10px 0; text-align: center; }
+        nav ul { list-style-type: none; padding: 0; }
+        nav ul li { display: inline; margin-right: 20px; }
+        section { margin: 20px; padding: 20px; background-color: white; border-radius: 5px; }
+        footer { background-color: #4CAF50; color: white; text-align: center; padding: 10px 0; position: fixed; bottom: 0; width: 100%; }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        
+        <a  href="{% url 'home' %}"><img  src="{% static 'images/icon.png' %}" width="100" height="100" class="d-inline-block align-top " alt="Logo"></a>
+        
+        </nav>
+    </header>
+
+    <div class="container">
+      <div class="sidebar-left">
+          <p><i>advertisement!</i></p>
+          
+      </div>
+      <div class="main-content">
+          
+          <h2>Welcome to LiveSoul</h2>
+          <p><i>Wellness is wealth</i></p><hr>
+
+        <section>
+            <div class="p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end --bs-info-bg-subtle .text-light">
+              <h3 class="lead text-center mt-5">Welcome to HealthConnect, your one-stop platform for a healthier and happier you. Explore our resources and connect with experts to empower your well-being journey.</h3>
+                </div>
+
+
+         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="https://th.bing.com/th/id/R.c7114168dc6ecdbdeeca2aba00b07f99?rik=os%2fdIC2iVHfDCw&pid=ImgRaw&r=0" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="https://th.bing.com/th/id/R.16af2cd95446d5c4377d06ca01a27f22?rik=xeDTntrHK2uXSA&pid=ImgRaw&r=0" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="https://th.bing.com/th/id/R.0f478444daff62255334eb9e5295eca2?rik=cORbLG7OK5WylA&pid=ImgRaw&r=0" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+            <ul>
+                <li><strong>Health nuggets:</strong> Read articles on various health topics written by experts.</li>
+
+                <li><strong>Find Doctors:</strong> Connect with qualified doctors for consultations.</li>
+                <li><strong>Zen tips:</strong> Get personalized health plans including nutrition and exercise suggestions.</li>
+            </ul>
+        </section>
+      </div>
+      <div class="sidebar-right">
+          <div class="p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end --bs-info-bg-subtle .text-success">
+          <h2>Recent Health nuggets</h2>
+            </div>
+          {% for article in articles %}
+              <li class="list-group-item">
+                  <h2 id="article_title">{{ article.title }}</h2>
+                  <p>by {{ article.author.username }} on {{ article.created_at }}</p>
+                  <p>{{ article.content|truncatewords:30 }}</p>
+              </li>
+          <hr>
+          {% endfor %}
+          <p>Content for the right sidebar.</p>
+      </div>
+
+
+ 
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+
+      <style>.container {
+          display: grid;
+          grid-template-columns: 1fr 3fr 1fr;
+          gap: 20px;
+          padding: 20px;
+          max-width: 1200px;
+          margin: 0 auto;
+      }
+
+      .sidebar-left, .sidebar-right {
+          background-color: #ffffff;
+          padding: 20px;
+          border-radius: 5px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+          nav ul li a{
+              color:#ff6347;
+              text-decoration: none;
+              transition: color 0.3s;
+              border: 10px
+              border-radius: 5px;
+          }
+          #article_title {
+              color: #ff6347;
+              text-decoration: none;
+              transition: color 0.3s;
+          }
+
+      .main-content {
+          background-color: #ffffff;
+          padding: 20px;
+          border-radius: 5px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+          color: #2e8b57; /* Green */
+      }
+
+
+      p {
+          color: #333333;
+      }</style>
+
+
+</body>
+</html>

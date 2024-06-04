@@ -1,0 +1,103 @@
+<!-- templates/core/navbar.html -->
+{% load static %}
+
+<link rel="icon" type="image/png" href="{% static 'images/icon.png' %}">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    
+    <a  href="{% url 'home' %}"><img  src="{% static 'images/icon.png' %}" width="30" height="30" class="d-inline-block align-top" alt="Logo"></a>
+    <a class="navbar-brand" href="{% url 'home' %}">Medical Platform</a> 
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <div class="collapse navbar-collapse bg-success" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'article_list' %}">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'doctor_list'%}">Professional Doctors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'health_facts' %}">Did you Know?</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                </li>
+            {% else %}
+            
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'doctor_list'%}">Professional Doctors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
+
+<style>    
+    /* static/css/navbar.css */
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: green; /* Green */
+        padding: 1rem 2rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand a {
+        text-decoration: none;
+        font-size: 1.5rem;
+        color: green;
+        font-weight: bold;
+    }
+
+    .navbar-nav {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-item {
+        margin-left: 2rem;
+    }
+
+    .nav-item a {
+        text-decoration: none;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .nav-item a:hover {
+        background-color: #ff6347; /* Subtle Red */
+        color: #fff;
+    }
+
+    .navbar-brand a:hover {
+        color: #00bcd4; /* Cyan */
+    }
+
+</style>

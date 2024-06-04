@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Health Plans</title>
+</head>
+<body>
+    <h2>Your Health Plans</h2>
+    <ul>
+        {% for plan in plans %}
+            <li><a href="{% url 'health_plan_detail' plan.pk %}">{{ plan.plan_type }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'create_health_plan' %}">Create New Plan</a>
+</body>
+</html>
